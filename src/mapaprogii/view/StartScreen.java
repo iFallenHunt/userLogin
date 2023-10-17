@@ -1,12 +1,12 @@
 package mapaprogii.view;
 
 import javax.swing.JOptionPane;
-import mapaprogii.core.entity.Usuario;
-import mapaprogii.core.entity.dao.UsuarioDAO;
+import userlogin.core.entity.User;
+import userlogin.core.entity.dao.UsuarioDAO;
 
-public class TelaInicio extends javax.swing.JFrame {
+public class StartScreen extends javax.swing.JFrame {
 
-    public TelaInicio() {
+    public StartScreen() {
         initComponents();
     }
 
@@ -100,7 +100,7 @@ public class TelaInicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
-        NovoUsuario nu = new NovoUsuario();
+        NewUser nu = new NewUser();
         nu.setVisible(true);
     }//GEN-LAST:event_btCadastrarActionPerformed
 
@@ -115,7 +115,7 @@ public class TelaInicio extends javax.swing.JFrame {
         int senha = Integer.parseInt(cxSenha.getText());
 
         UsuarioDAO usuarioDAO = new UsuarioDAO();
-        Usuario usuario = usuarioDAO.buscaPorLogin(login, senha);
+        User usuario = usuarioDAO.buscaPorLogin(login, senha);
 
         if (usuario != null) {
             JOptionPane.showMessageDialog(null, "Acesso Autorizado");
@@ -143,18 +143,18 @@ public class TelaInicio extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StartScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StartScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StartScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StartScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaInicio().setVisible(true);
+                new StartScreen().setVisible(true);
             }
         });
     }

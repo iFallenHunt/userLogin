@@ -1,14 +1,14 @@
-package mapaprogii.core.entity.dao;
+package userlogin.core.entity.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import mapaprogii.core.entity.dao.conexao.ConexaoJDBC;
-import mapaprogii.core.entity.Usuario;
+import userlogin.core.entity.dao.connection.ConexaoJDBC;
+import userlogin.core.entity.User;
 
 public class UsuarioDAO {
 
-    public void inserir(Usuario usuario) {
+    public void inserir(User usuario) {
         
         String sql = "INSERT INTO USUARIO (nome, login, senha, email) VALUES (?,?,?,?)";
         
@@ -28,11 +28,11 @@ public class UsuarioDAO {
         }
     }
     
-    public Usuario buscaPorLogin(String login, Integer senha){
+    public User buscaPorLogin(String login, Integer senha){
         String sql = "SELECT id, nome, login, senha , email from usuario where login = ? and senha = ?";
         
         PreparedStatement ps = null;
-        Usuario usuario = null;
+        User usuario = null;
         
         try {
         ps = ConexaoJDBC.getConexao().prepareStatement(sql);
@@ -41,7 +41,7 @@ public class UsuarioDAO {
         ResultSet rs = ps.executeQuery();
 
         if (rs.next()) {
-            usuario = new Usuario();
+            usuario = new User();
             usuario.setId(rs.getLong("id"));
             usuario.setNome(rs.getString("nome"));
             usuario.setLogin(rs.getString("login"));

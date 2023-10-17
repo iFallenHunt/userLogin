@@ -1,4 +1,4 @@
-package mapaprogii.core.entity.dao.conexao;
+package userlogin.core.entity.dao.connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

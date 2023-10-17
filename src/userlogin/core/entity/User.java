@@ -1,6 +1,6 @@
-package mapaprogii.core.entity;
+package userlogin.core.entity;
 
-public class Usuario {
+public class User {
 
     private Long id;
     private String nome;
