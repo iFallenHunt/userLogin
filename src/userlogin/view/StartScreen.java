@@ -1,8 +1,8 @@
-package mapaprogii.view;
+package userlogin.view;
 
 import javax.swing.JOptionPane;
 import userlogin.core.entity.User;
-import userlogin.core.entity.dao.UsuarioDAO;
+import userlogin.core.entity.dao.UserDAO;
 
 public class StartScreen extends javax.swing.JFrame {
 
@@ -17,41 +17,42 @@ public class StartScreen extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        btCadastrar = new javax.swing.JButton();
-        btEntrar = new javax.swing.JButton();
-        cxLogin = new javax.swing.JTextField();
-        cxSenha = new javax.swing.JTextField();
+        btRegister = new javax.swing.JButton();
+        btEnter = new javax.swing.JButton();
+        bxLogin = new javax.swing.JTextField();
+        bxPassword = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
-        jLabel1.setText("Tela de login");
+        jLabel1.setText("Login screen");
 
         jLabel2.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel2.setText("Login: ");
 
         jLabel3.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        jLabel3.setText("Senha: ");
+        jLabel3.setText("Password:");
 
-        btCadastrar.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        btCadastrar.setText("Cadastrar novo usuário");
-        btCadastrar.addActionListener(new java.awt.event.ActionListener() {
+        btRegister.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        btRegister.setText("Register a new user");
+        btRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btCadastrarActionPerformed(evt);
+                btRegisterActionPerformed(evt);
             }
         });
 
-        btEntrar.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        btEntrar.setText("Entrar");
-        btEntrar.addActionListener(new java.awt.event.ActionListener() {
+        btEnter.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        btEnter.setText("Enter");
+        btEnter.setActionCommand("Enter");
+        btEnter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btEntrarActionPerformed(evt);
+                btEnterActionPerformed(evt);
             }
         });
 
-        cxLogin.addActionListener(new java.awt.event.ActionListener() {
+        bxLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cxLoginActionPerformed(evt);
+                bxLoginActionPerformed(evt);
             }
         });
 
@@ -60,78 +61,79 @@ public class StartScreen extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btEntrar)
-                            .addComponent(btCadastrar)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(125, 125, 125)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1)
-                            .addComponent(cxLogin)
-                            .addComponent(cxSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE))))
-                .addContainerGap(102, Short.MAX_VALUE))
+                            .addComponent(bxLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
+                            .addComponent(bxPassword)))
+                    .addComponent(btEnter)
+                    .addComponent(btRegister)
+                    .addComponent(jLabel2))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(145, 145, 145)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(140, 140, 140))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(42, 42, 42)
+                .addGap(22, 22, 22)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(cxLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bxLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(cxSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addComponent(btEntrar)
+                    .addComponent(bxPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addComponent(btEnter)
                 .addGap(18, 18, 18)
-                .addComponent(btCadastrar)
+                .addComponent(btRegister)
                 .addGap(20, 20, 20))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
+    private void btRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegisterActionPerformed
         NewUser nu = new NewUser();
         nu.setVisible(true);
-    }//GEN-LAST:event_btCadastrarActionPerformed
+    }//GEN-LAST:event_btRegisterActionPerformed
 
-     private void limparTela() {
-        cxLogin.setText("");
-        cxSenha.setText("");        
+     private void cleanScreen() {
+        bxLogin.setText("");
+        bxPassword.setText("");        
     }
     
-    private void btEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEntrarActionPerformed
+    private void btEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEnterActionPerformed
 
-        String login = cxLogin.getText();
-        int senha = Integer.parseInt(cxSenha.getText());
+        String login = bxLogin.getText();
+        int password = Integer.parseInt(bxPassword.getText());
 
-        UsuarioDAO usuarioDAO = new UsuarioDAO();
-        User usuario = usuarioDAO.buscaPorLogin(login, senha);
+        UserDAO uDAO = new UserDAO();
+        User user = uDAO.searchByLogin(login, password);
 
-        if (usuario != null) {
-            JOptionPane.showMessageDialog(null, "Acesso Autorizado");
+        if (user != null) {
+            JOptionPane.showMessageDialog(null, "Authorized Access");
             // Aqui você pode redirecionar para a próxima tela
         } else {
-            JOptionPane.showMessageDialog(null, "Acesso Negado", "Acesso negado", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Access denied", "Access denied", JOptionPane.ERROR_MESSAGE);
         }
-        limparTela();     
+        cleanScreen();     
         
-    }//GEN-LAST:event_btEntrarActionPerformed
+    }//GEN-LAST:event_btEnterActionPerformed
   
         
     
-    private void cxLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cxLoginActionPerformed
+    private void bxLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bxLoginActionPerformed
 
-    }//GEN-LAST:event_cxLoginActionPerformed
+    }//GEN-LAST:event_bxLoginActionPerformed
 
     public static void main(String args[]) {
 
@@ -160,10 +162,10 @@ public class StartScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btCadastrar;
-    private javax.swing.JButton btEntrar;
-    private javax.swing.JTextField cxLogin;
-    private javax.swing.JTextField cxSenha;
+    private javax.swing.JButton btEnter;
+    private javax.swing.JButton btRegister;
+    private javax.swing.JTextField bxLogin;
+    private javax.swing.JTextField bxPassword;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

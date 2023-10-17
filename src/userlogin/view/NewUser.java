@@ -1,7 +1,7 @@
-package mapaprogii.view;
+package userlogin.view;
 
 import javax.swing.JOptionPane;
-import userlogin.core.entity.dao.UsuarioDAO;
+import userlogin.core.entity.dao.UserDAO;
 import userlogin.core.entity.User;
 
 public class NewUser extends javax.swing.JFrame {
@@ -118,20 +118,20 @@ public class NewUser extends javax.swing.JFrame {
     private void btSaveRegistrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSaveRegistrationActionPerformed
 
         User u = new User();
-        u.setNome(bxNewName.getText());
+        u.setName(bxNewName.getText());
         u.setLogin(bxNewLogin.getText());
-        u.setSenha(Integer.parseInt(bxNewPassword.getText()));
+        u.setPassword(Integer.parseInt(bxNewPassword.getText()));
         u.setEmail(bxNewEmail.getText());
 
-        UsuarioDAO udao = new UsuarioDAO();
+        UserDAO udao = new UserDAO();
         udao.inserir(u);
 
-        limparTela();
-        JOptionPane.showMessageDialog(rootPane, "Usuario Cadastrado com sucesso", "SUCESSO", JOptionPane.INFORMATION_MESSAGE);
+        cleanScreen();
+        JOptionPane.showMessageDialog(rootPane, "User successfully registered", "SUCCESS", JOptionPane.INFORMATION_MESSAGE);
 
     }//GEN-LAST:event_btSaveRegistrationActionPerformed
 
-    private void limparTela() {
+    private void cleanScreen() {
         bxNewName.setText("");
         bxNewLogin.setText("");
         bxNewPassword.setText("");

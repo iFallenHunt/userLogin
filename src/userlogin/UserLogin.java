@@ -1,7 +1,7 @@
 
 package userlogin;
 
-import mapaprogii.view.StartScreen;
+import userlogin.view.StartScreen;
 
 public class UserLogin {
 

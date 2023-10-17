@@ -3,9 +3,9 @@ package userlogin.core.entity;
 public class User {
 
     private Long id;
-    private String nome;
+    private String name;
     private String login;
-    private Integer senha;
+    private Integer password;
     private String email;
 
     public Long getId() {
@@ -16,12 +16,12 @@ public class User {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getLogin() {
@@ -32,12 +32,12 @@ public class User {
         this.login = login;
     }
 
-    public Integer getSenha() {
-        return senha;
+    public Integer getPassword() {
+        return password;
     }
 
-    public void setSenha(Integer senha) {
-        this.senha = senha;
+    public void setPassword(Integer password) {
+        this.password = password;
     }
 
     public String getEmail() {
