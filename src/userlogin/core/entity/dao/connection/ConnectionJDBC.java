@@ -22,7 +22,7 @@ public class ConnectionJDBC {
                 return conn;
             }
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Não foi possivel conectar com o banco", "ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Unable to connect to the bank", "ERROR", JOptionPane.ERROR_MESSAGE);
             return null;
         }
     }
